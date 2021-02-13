@@ -33,7 +33,7 @@ $(document).ready(function () {
         return $movieHTMLArray.join('')
         
     }
-
+    
     const $search = $('#search')
     $search.on('click', function(e) {
         e.preventDefault();
