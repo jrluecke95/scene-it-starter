@@ -2,9 +2,8 @@
 
 
 $(document).ready(function () {
-    const $movieList = localStorage.getItem('watchlist')
+    const $movieList = localStorage.getItem("watchlist")
     let watchlist = JSON.parse($movieList);
-    console.log($movieList)
     const $movieContainer = $('.movies-container')
     function renderMovies(movieArray) {
         const $movieHTMLArray = movieArray.map(currentMovie => {
@@ -24,4 +23,32 @@ $(document).ready(function () {
     }
     // renderMovies($movieList)
     $movieContainer.html(renderMovies(watchlist))
-})
+
+    // create new filter list/array
+    // set local data equal to new array
+    // call render movies funciton again 
+
+    const $remove = $('#remove');
+    function removeMovie() {
+        let currentList = localStorage.getItem('watchlist')
+        const $removeValue = $('#remove-item').val()
+        let updatedWatchlist = currentList.filter(function(e) {
+            return(e.Title !== $removeValue)
+        })
+        $movieContainer.html(renderMovies(updatedWatchlist))
+    }
+
+    $remove.on('click', function(e) {
+        e.preventDefault()
+        removeMovie()
+    })
+
+
+    // $remove.on('click', function(e) {
+    //     e.preventDefault();
+        // removeMovie()
+        // const $removeValue = $('#remove-item').val()
+        // let updatedWatchlist = watchlist.filter(function(e) {
+        //     return(e.Title !== $removeValue)
+    //     })
+    })
