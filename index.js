@@ -71,7 +71,7 @@ $(document).ready(function () {
         const $searchBar = $('#search-bar');
         let $searchString = $searchBar.val()
         let $urlEncodedSearchString = encodeURIComponent($searchString);
-        $.get("http://www.omdbapi.com/?apikey=59354c85&s=" + $urlEncodedSearchString) 
+        $.get("https://www.omdbapi.com/?apikey=59354c85&s=" + $urlEncodedSearchString) 
         .then((data) => {
             let movieHTML = renderMovies(data.Search)
             // console.log($movieContainer)
