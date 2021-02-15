@@ -31,10 +31,13 @@ $(document).ready(function () {
     const $remove = $('#remove');
     function removeMovie() {
         let currentList = localStorage.getItem('watchlist')
-        const $removeValue = $('#remove-item').val()
-        let updatedWatchlist = currentList.filter(function(e) {
+        let movieList = JSON.parse(currentList)
+        const $removeValue = $('#removeItem').val()
+        let updatedWatchlist = movieList.filter(function(e) {
             return(e.Title !== $removeValue)
         })
+        let updatedWatchlistJSON = JSON.stringify(updatedWatchlist)
+        localStorage.setItem('watchlist', updatedWatchlistJSON)
         $movieContainer.html(renderMovies(updatedWatchlist))
     }
 
@@ -42,13 +45,4 @@ $(document).ready(function () {
         e.preventDefault()
         removeMovie()
     })
-
-
-    // $remove.on('click', function(e) {
-    //     e.preventDefault();
-        // removeMovie()
-        // const $removeValue = $('#remove-item').val()
-        // let updatedWatchlist = watchlist.filter(function(e) {
-        //     return(e.Title !== $removeValue)
-    //     })
-    })
+})
