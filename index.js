@@ -1,5 +1,6 @@
 function saveToWatchList(imdbID) {
-    let movieData = response.data.Search
+    let movieData = data.Search
+    console.log(movieData)
     const movie = movieData.find(currentMovie => {
         return currentMovie.imdbID == imdbID;
     });
@@ -72,9 +73,10 @@ $(document).ready(function () {
         let $urlEncodedSearchString = encodeURIComponent($searchString);
         $.get("http://www.omdbapi.com/?apikey=59354c85&s=" + $urlEncodedSearchString) 
         .then((data) => {
-            let movieHTML = renderMovies(response.data.Search)
-            $movieContainer.html = movieHTML
-
+            let movieHTML = renderMovies(data.Search)
+            // console.log($movieContainer)
+            $movieContainer.html(movieHTML)
+            // console.log($movieContainer)
         })
         })
     })
