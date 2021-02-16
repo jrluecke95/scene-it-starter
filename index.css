@@ -17,3 +17,7 @@ body {
 .good-bg-color {
 	background-color: #6bb4b9;
 }
+
+.hidden {
+	visibility: hidden;
+}
