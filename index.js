@@ -7,7 +7,7 @@ function saveToWatchList(imdbID) {
         if (watchlist === null) {
             watchlist = [];
         }
-        watchlist.push(movie);
+        watchlist.push(movie)
         watchlistJSON = JSON.stringify(watchlist);
         localStorage.setItem('watchlist', watchlistJSON)
         })
@@ -18,12 +18,6 @@ function saveToWatchList(imdbID) {
 // get data from API as object
 // store object as JSON - as a string
 // then convert it back to object format so you can access the data
-
-
-// render movies as normal without if/else related to titles 
-// jsut use $('a').remove('#addButton') to get rid of buttons if titles meet criteria 
-// wouldnt work immediately. would still require refresh 
-// need to find a way to integrate it with the save towatchlist function 
 
 $(document).ready(function () {
     const $movieList = localStorage.getItem("watchlist")
@@ -46,7 +40,7 @@ $(document).ready(function () {
                         <h5 class="card-title">${currentMovie.Title}</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                            <a href="#" id="nullButton" class="btn btn-primary" disabled>On your list</a>
+                            <a href="#" id="nullButton" class="btn btn-primary">On your list</a>
                     </div>
                 </div>
             </div>`
@@ -100,20 +94,6 @@ $(document).ready(function () {
 //                       </div>
 //                   </div>
 //               </div>
-
-
-    // get movie info from moie array that is in rendermovies function 
-    // const movie = movieData.find(currentMovie => {
-    //     return currentMovie.imdbID == imdbID;
-    // });
-    // let watchlistJSON = localStorage.getItem('watchlist');
-    // let watchlist = JSON.parse(watchlistJSON);
-    // if (watchlist === null) {
-    //     watchlist = [];
-    // }
-    // watchlist.push(movie);
-    // watchlistJSON = JSON.stringify(watchlist);
-    // localStorage.setItem('watchlist', watchlistJSON)
 
 
                 // if ($.inArray(currentMovie, watchlist)) {
